@@ -23,3 +23,4 @@ print(str(a)+str(b))
 c = 2333.33333
 # c의 소수부분을 잘라서 출력하라
 print(int(c))
+print("today")
