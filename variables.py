@@ -20,4 +20,3 @@ print(type(b))
 
 c = 2.1
 print(type(c))
-print(a*c)
