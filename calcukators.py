@@ -18,7 +18,7 @@ print(answer)
 # 제곱과 제곱근
 # 2의 10제곱을 출력하라
 print(2**10) 
-print(pow(2,10)) # pow 제곱 내장함수
+print(pow(2,10)) # pow 제곱 내장함수  
 import math
 print(math.pow(2,10))
 # 1024의 제곱근을 구하라
