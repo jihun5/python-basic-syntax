@@ -37,3 +37,22 @@ date = A[:8]
 day = A[8:]
 print(date)
 print(day)
+
+# 연습문제 3개의 단어를 입력받아 첫글자 추출후 약자를 추출
+#  조건 1> 각 단여의 변수 word1 ...3
+#  조건 2> 입력과 출력 구분선: 문자열 연산
+#  조건 3> 각변수의 첫 단어만 추출하여 변수 저장(index)
+
+# 출력화면 에씨
+# 첫번째 단어 : korea
+# 두번째 단어 : Baseball
+# 세번째 단어 : orag
+# ======================
+# 약자 : KBO
+
+word1 = input("첫번째 단어 :")
+word2 = input("두번째 단어 :")
+word3 = input("세번째 단어 :")
+print("="*20)
+result = print("약자:", word1[0]+word2[0]+word3[0])
+print("="*20) 
