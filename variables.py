@@ -194,4 +194,6 @@ print(b)
 # 출력화면 : 2차 방정식 결과 = 22.6
 x = int(input("x값을 입력해주세요:"))
 y = 2.5 * pow(x, 2) + 3.3 * x + 6
-print(y)
+print(y) 
+
+print("날씨가")
