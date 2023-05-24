@@ -28,3 +28,23 @@ lista.pop()
 lastValue = lista.pop() # pop이 실행이 되는순간 remove가 
                         # 되기때문에 김철수가 지워지고 그 다음 마지막인 김갑순이 출력
 print(lastValue)
+
+a = 10
+b = 20
+result = 0
+# 만약에 ~하면 result = 1 그렇지 않으면 result = -1
+
+# 문자 리스트를 문자열로 만들기
+lista = ["hello","world","python"]
+st1 = ""
+st2 = st1.join(lista) # "".join(lista) 도 똑같음
+print(st2)
+# for a in lista:
+#     st1 = st1 + a
+# print(st1)
+# 문자열을 문자 리스트로 만들기
+sta = "hello world python"
+mySta = list(sta)
+mysta2 = sta.split()
+print(mySta)
+print(mysta2)
