@@ -86,16 +86,60 @@ listf.remove(3)
 print(listf) # 중복일 경우 앞의 숫자를 삭제
 
 # 모든 특정한 9값을 삭제해보아라 del, for range
-listg = [1,9,4,9,5,7,8,9]
-for a in range(0, len(listg)):
-    if listg[g] == 9:
-        del lista[g]
-print(listg) #오류가 나는 이유 : 지워지면서 index번호가 계속 줄어들어서 범위가 줄어들어서 오류가 발생
+# listg = [1,9,4,9,5,7,8,9]
+# for a in range(0, len(listg)):
+#     if listg[g] == 9:
+#         del listg[g]
+# print(listg) #오류가 나는 이유 : 
+# 지워지면서 index번호가 계속 줄어들어서 범위가 줄어들어서 오류가 발생
 # while 문을 사용하여 하는것이 바람직함.
 # 만약에 한다면 count 값을 넣어서 표현이 가능
-listg = [1,9,4,9,5,7,8,9]
+# 방법1
+listg = [1,3,3,1,4,2,5,11,1]
+count = 0
+for i in range(0, len(listg)):
+    if listg[i-count] == 1: #인덱스의 범위 내에서 1을 줄인 listg를 소환
+        del listg[i-count] #인덱스의 범위 내에서 1을 줄인 listg를 소환해서 listg에서 1을 삭제
+        count = count +1 #1을 지우면서 하나씩 줄어드는 
+                        # 인덱스의 수를 맞추어 오류를 발생하지 않게함
+print(listg)
+
+# 방법2
 for a in range(0, len(listg)):
-    count = 0
-    if listg[g] == 9:
-        del lista[g]
-        count = count + 1
+    if 1 in listg:
+        listg.remove(1)
+    else:
+        break
+    # listg에 1이 포함되어있다면 1을 삭제하고 
+    # 1번부터 8번까지 다시 1이 있는 지 검토하고 1이 있으면 삭제함
+print(listg)
+
+# 방법3
+listh = []
+for a in range(0, len(listg)):
+    if listg[a] !=1:
+        # listh = listh + lista[g]]
+        # 또는 append
+        listh = listh + [listg[a]]
+        # listh.append(listg[g]) 
+        # 새롭게 만들어진 h리스트에 1을 제외한 항목들을 계속 더해가는 것
+print(listh)
+
+# list append : 리스트 맨 뒤로 추가
+listi = [1,3,5,7]
+# 9,10을 append이용해서 추가해서 출력 
+listi.append(9)
+listi.append(10) #동시에 2개는 안됨
+print(listi)
+# list insert : index를 지정하여 추가가능
+# listi.index(2, "abc") 추가 후 출력 
+listi.insert(2, "abc")
+print(listi)
+# list extend : interable 객체를 list에 추가할때 사용
+# extend는 각 요소를 꺼내어 맨 뒤에 추가
+
+listj = [10,20,30]
+listi.append(listj) # append는 리스트 형식 그래도 추가
+print(listi)
+listi.extend(listj) # 리스트를 요소 형식으로 추가
+print(listi)
