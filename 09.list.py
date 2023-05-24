@@ -37,3 +37,65 @@ print(type(lista[:5]))
 list_ex1 = ['a','b','c',[1,2,3]]
 number = list_ex1[3]
 print(number[0]+number[2]) # = print(list_ex1[3][0] + list_ex1[3][2])
+
+# 문자를 리스트화 할때(길이 구하기)
+a = "abcdefghi"
+listx = list(a)
+print(listx)
+count = 0
+for b in listx:
+    count = count +1
+print(count)
+print(len(a))
+
+# 리스트 더하기 또는 곱하기
+# list를 2개 선언하고 만들어서, 2개를 더해서 하나의 리스트를 만들어보자 그리고 출력
+listb = [1,2,3,4,5]
+listc = [6,7,8,9,10]
+print(listb+listc)
+print(listb[:]+listc[:])
+print(listb*10)
+print(list)
+
+# 리스트 길이 구하기 : len
+print(len(listb))
+
+# 리스트 값 수정하기 -> 1개의 값만 바꿀 땐 1개의 값으로 대체
+# 여러값을 바꿀땐 다른 리스트로 대체
+
+listd = [1,3,5,6,7,9]
+listd[1] = 4
+print(listd)
+listd[2] = [5,5,5]
+print(listd)
+
+# list.count값 찾기
+liste = ["1","2","3","4","1","1","3"]
+print(liste.count("1"))
+
+# list 요소 삭제하기(del) del 리스트명 index, sling
+listf = [1,3,5,7,9,10]
+del listf[3]
+print(listf)
+del listf[2:5]
+print(listf)
+
+# 리스트 요소 삭제하기(remove) 리스트.remove(삭제하고싶은 요소의 순번)
+listf = [1,3,5,7,9,10]
+listf.remove(3)
+print(listf) # 중복일 경우 앞의 숫자를 삭제
+
+# 모든 특정한 9값을 삭제해보아라 del, for range
+listg = [1,9,4,9,5,7,8,9]
+for a in range(0, len(listg)):
+    if listg[g] == 9:
+        del lista[g]
+print(listg) #오류가 나는 이유 : 지워지면서 index번호가 계속 줄어들어서 범위가 줄어들어서 오류가 발생
+# while 문을 사용하여 하는것이 바람직함.
+# 만약에 한다면 count 값을 넣어서 표현이 가능
+listg = [1,9,4,9,5,7,8,9]
+for a in range(0, len(listg)):
+    count = 0
+    if listg[g] == 9:
+        del lista[g]
+        count = count + 1
