@@ -12,5 +12,3 @@ for a in range(1, 101): # a, a-1의 범위 1부터 100까지는 1, 101
 # listb = ["a","b","c","d"]
 # for b in range(0, len(listb)):
 #     print(listb[b]) 파이썬 외에 언어 기본문법
-
-
