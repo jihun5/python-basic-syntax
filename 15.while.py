@@ -45,8 +45,32 @@ print(sum)
 # 홀수만 더해서 출력하기
 sum = 0
 a = 0
-while a<1001:
+while a<1000:
+    a += 1
+    if a%2 != 0:
+        sum += a
+print(sum)
+
+# continue 쓰기
+sum = 0
+a = 0
+while a<1000:
     a += 1
     if a%2 == 0:
-        #continue 문을 할용해서 coding
+        continue  # 짝수인 경우 더하지 않고 넘어간다 즉, 위와 같은 식
+    sum += a
 print(sum)
+
+
+# while True:
+#     num1 = int(input("숫자를 입력해주시오:"))
+#     if num1 > 180:
+#         continue        #하단에 불필요한 로직을 수행하지 않고 다시 조건으로 이동할 수 있게 해준다
+#     if num1 < 90:
+#         print("예각")
+#     elif num1 == 90:     #if로 쓰는 순간 독립된 형태이기때문에 위에서 true라면 둔각과 예각이 모두 출략되는 현상이 일어남
+#         print("직각")
+#     elif num1 < 180:
+#         print("둔각")
+#     else:                # elif num1 == 180: 로 써된다. 
+#         print("평행")
