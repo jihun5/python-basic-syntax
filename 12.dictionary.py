@@ -74,6 +74,10 @@ for k in keylist:
         print(k)
         print(dic1[k])
 
+#  clear 변수명.clear() key : value 값 모두 한꺼번에 삭제하는 방법
+dic1.clear()
+print(dic1)
+
 # 위의 for 문을 활용해서 key가 담긴 list를 만들고, value가 담긴 list를 만들어보기
 # 1.
 # lista = list(dic1.keys())
