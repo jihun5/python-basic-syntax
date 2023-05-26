@@ -47,4 +47,13 @@ for a in range(len(lista)):
     listb.append(list[len(lista)-a-1])
 print(listb)
 
-
+a = 10
+if a >5:
+    print("참입니다.")
+if a >100:
+    print("참입니다.") #위의 if와 상관없이 독립적으로 존재
+else:
+    print("거짓입니다.") 
+# 실행이되는 이유는 바로위에 if가 거짓이기 때문 맨위에 if와는 상관이없음 elif를 쓰는경우 else는 영향을 받음
+# else 상단에 있는 if 또는 elif에 종속된다.
+# elif도 마찬가지로 elif상단에 if에 종속된다.
