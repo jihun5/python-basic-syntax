@@ -14,3 +14,37 @@
 #         dicta[a] = dicta[a] + 1 # dicta의 키값에 a가 포함되어 있다면 a : 1 +1 = a:2가되는 것 
 # print(dicta) - 새롭게 쓰여진 딕셔너리 dicta
 
+# 최대값 구하기
+lista = [100, 20, 30, 5, 90]
+# 위 리스트의 최대값을 정렬함X(sort), 최대값함수X, for문 쓰기 min, max는 예약 코드이기때문에 이것만 쓰면 안됨
+# 방법1
+maxA = 0 # max = lista[0] -> 값이 음수일 경우 최대 값은 0으로 고정될 수도 있기때문에 lista 값을 하나 가져와서 비교할 수 있다.
+minA = lista[0]
+for a in lista: # 100, 20, 30, 5, 90 출력
+    if maxA < a: # 100, 20, 30, 5, 90 출력 > if max가 a
+        maxA = a
+    elif minA > a: # 최소값을 lista[0]번째 부터 찾는다는 가정 
+                   # else를 쓰지 않는건 최대값을 구하고 끝나기때문에 else minA가 90이 출력될 가능성이있다.
+        minA = a   # 만약 min = 0으로 두고 하면 5>0보다 크니까 출력값은 0이나온다.
+print(minA)        # 따라서 최대값, 최솟값을 구할 때는 정해진 list 값의 첫번째를 설정하고
+                  # for문에서 lista전체와 비교하여 구하는 것이 바람직하다
+
+# 방법2 max() min()
+maxA = max(lista)
+minA = min(lista)
+
+# 방법3 sort()
+lista.sort()
+minA = lista[0] # 최소값
+maxA = lista[-1] # 최대값
+print(len(lista)) # lista의 오름차순 정리하여 길이를 구하면 맨 마지막 숫자가 가장 높은 수
+lista[4] # 5개가 나왔기 때문에 0 1 2 3 4, 4가 가장 높은수 = len(lista)-1
+print(lista[4])
+
+# 내림차순 정렬찾기
+listb = []
+for a in range(len(lista)):
+    listb.append(list[len(lista)-a-1])
+print(listb)
+
+

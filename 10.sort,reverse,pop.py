@@ -48,3 +48,4 @@ mySta = list(sta)
 mysta2 = sta.split()
 print(mySta)
 print(mysta2)
+
