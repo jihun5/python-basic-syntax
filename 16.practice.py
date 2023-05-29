@@ -122,7 +122,8 @@ lista = [93,45,21,30,20,94,66,71,45]
 #                 min = lista[0]
 #                 print(min)
 # 첫번째 for문은 채워나가야할 index를 의미
-for a in range(len(lista)): # 인덱스 값에 접근하기 위해 len를 사용 0~8까지
+for a in range(len(lista)-1): # 인덱스 값에 접근하기 위해 len를 사용 0~8까지 a는 0~8까지 각자 자리를 의미, 
+                              # -1을 하는 이유는 7번째가 완성이 되는순간 8번째랑 비교할 필요가 없어서
         for b in range(a+1, len(lista)): # 비교의 대상이 되는 index를 의미, len(listb)는 똑같이 계속 8변을 반복 
                                         # 범위를 a번째에서 lista로 설정해야 하나씩 줄여 나갈 수 있다. 
                                         # a+1을 하는 이유는 자기 자신과 비교할 경우를 제외하기 위해
@@ -133,4 +134,34 @@ for a in range(len(lista)): # 인덱스 값에 접근하기 위해 len를 사용
                 lista[a] = lista[b]
                 lista[b] = temp
 print(lista)
+
+# 위에꺼 깔금하게 코드만 나오게 하기
+# for a in range(len(lista)-1):  
+#            for b in range(a+1, len(lista)): 
+#             if lista[a] > lista[b]: 
+#                 temp = lista[a]
+#                 lista[a] = lista[b]
+#                 lista[b] = temp
+# print(lista)
+
 # 버블정렬
+
+# 2차원 행렬
+lista = [[1,2,3], [2,3,4]]
+print(len(lista)) # 전체가 2개 
+print(len(lista[0])) # 각각의 요소가 3개
+
+# 
+ansnwer = []
+arr1 = [[1,2],[2,3]]
+arr2 = [[3,4],[5,6]]
+# answer = [[4,6],[7,9]]
+# arr1[0][0] + arr2[0][0], arr1[0][1]+arr[0][1], arr1[1][0] + arr2[1][0], arr1[1][1] + arr2[1][1]
+for a in range(len(arr1)): # 전체 리스트의 길이 0~1, 2개의 요소
+    temp = [] 
+    for b in range(len(arr1[0])): # 그 리스트 안에 길이 1,2, 2개의 요소
+        temp.append(arr1[a][b]+arr2[a][b]) # temp = 4,6 0번째의 0번째 더하기(4), 0번쨰의 1번째 더하기(6)
+                                           # arr1의 1번에 1번째요소 + arr2의 1번쨰 1번째요소 더하기 = [7]
+                                           # arr1의 1번쩨 2번째요소 + arr2의 1번째 2번쨰 요소 더하기 = [9]
+    ansnwer.append(temp)
+print(ansnwer)
