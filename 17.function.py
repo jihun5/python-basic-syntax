@@ -51,3 +51,39 @@ def myFunc(x, y):
     return result
 result = myFunc(2,3)
 print(result) 
+
+# list의 index함수를 for문 또는 while문을 통해 
+# 숫자 9가 몇번째 인덱스에 있는 값인지
+# print 해보자
+lista = [1,4,6,9,9]
+print(lista.index(9))
+
+for a in range(len(lista)): # lista 5번반복
+    if lista[a] == 9:
+        print(a)
+        break # 9가 중복인경우 첫번째 9가나왔을때 break 없을 시 3,4 출력
+
+# 위의 for문을 활용하여 myindex라는 이름의 함수를 만들고자 한다.
+# input(list, 찾고자하는 값)가 2개가 필요하고 print는 함수 내에서 하지 않도록 한다. return에 값을 담는다.
+lista = [1,4,6,9]
+def myindex(x, y): # x = lista y = 9 
+    result = -1
+    for a in range(len(x)): 
+       if x[a] == y:
+            result = a #= lista[9], index값 넣기
+            break
+    return result
+result = myindex(lista, 9)
+print(result)
+
+lista = [1,4,6,9]
+def myindex(x, y): # x = lista y = 9 
+    result = -1
+    for a in range(len(x)): 
+        if lista[a] == y:
+            print(a)
+            break
+
+r1 = myindex(lista, 9)  
+print(r1)              # 이렇게 출력시 3하고 none값이 출력 return값이 없으면 none값을 출력
+# myindex(lista, 9) 로 그냥 입력 후 출력하면  3값이 나온다.    
