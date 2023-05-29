@@ -124,4 +124,3 @@ while True:
         lista.append(listvalues)
         a += 1
     print(lista)
-
