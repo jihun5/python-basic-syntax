@@ -87,3 +87,87 @@ def myindex(x, y): # x = lista y = 9
 r1 = myindex(lista, 9)  
 print(r1)              # 이렇게 출력시 3하고 none값이 출력 return값이 없으면 none값을 출력
 # myindex(lista, 9) 로 그냥 입력 후 출력하면  3값이 나온다.    
+
+#20230530###############################################################
+# 키보드로 반지름의 길이를 입력받고
+# 원의 넓이를 구하는 함수를 만들어 결과를 출력하라
+# 원의 넓이 = 반지름 *반지름 *3.14
+# num1 = int(input("반지름의 길이를 입력하시오")) 원의 넓이 : 12.56
+# result = circleSize(num1)
+# num1 = int(input("반지름의 길이를 입력하시오")) #원의 넓이 : 12.56
+# result(원의 넓이) = circleSize(num1)
+# def circleSize(x):
+#     a = x*x*3.14
+#     # return a = x*x*3.14 도가능 
+# num1 = int(input("반지름의 길이를 입력하시오"))
+# result = circleSize(num1)
+# print("원의 넓이:" + str(result))
+
+# "hello python!"
+# 1) hello() 이렇게만 호출했을 때 "hello1 python" 위 결과 출력
+# 2) print(hello2()) 실행했을때 "hello2 python"
+def hello():
+    print("hello1 python") # 
+    
+def hello2():
+    a = "hello2 python"
+    return a
+result = hello2()
+
+# print(hello()) none 값, 리턴이 없기때문
+hello()
+print(result)
+
+# 입력값의 개수가 정해져 있지 않고 multiple한 함수
+def sum(*args):
+    num = 0
+    for a in args:
+        num += a
+    return num
+totalvalue = sum(1,2,3,4,5)
+print(totalvalue)
+
+# 2개 이상의 리턴값이 있는 경우 : 튜플형태로 데이터 return
+def cal(a, b):
+    result1 = a+b
+    result2 = a-b
+    result3 = a*b
+    return result1,result2,result3
+
+calvalue = cal(1,2)
+# 계산한 첫번째 결과 값은 xx, 두번째 결과값은yy, 세번쩨결과값은 zz
+print(f"계산한 첫번째 결과값은{calvalue[0]}, 두번째 결과값은{calvalue[1]}, 세번째 결과값은{calvalue[2]}")
+
+# 함수에서 default값 미리 세팅하기
+def cal(a, b,c):
+    
+    if c=="plus":
+        result = a + b
+    elif c == 'minus':
+        result = a - b
+    elif c == 'multiply':
+        result = a*b
+    return result
+# result = cal(a,b,c) # 마이너스 한 값 
+result = cal(a,b,"minus")
+print(result)
+result = cal(a,b,"plus")
+print(result)
+result = cal(a,b, "multiply")
+print(result)
+
+# 기본 값세팅
+def cal(a,b,c ='plus'):
+    if c=="plus":
+        result = a + b
+    elif c == 'minus':
+        result = a - b
+    elif c == 'multiply':
+        result = a*b
+    return result
+print(cal(1,2)) # 기본 값으로 plus를 가지고 있기때문에 1+2가 출력됨
+print(cal(1,2, "minus"))# 다른 조건이 들어오면 조건이 출력됨 1-2가 출력
+
+# 파이썬에서 default값 세팅하는 대표적인 예시가 print함수
+print("hello")
+print("world")
