@@ -71,6 +71,8 @@ def myindex(x, y): # x = lista y = 9
     for a in range(len(x)): 
        if x[a] == y:
             result = a #= lista[9], index값 넣기
+            # break를 할 필요 없이, 바로 return을 해도 된다.
+            # return하게 되면 함수전체가 강제 종료된다.
             break
     return result
 result = myindex(lista, 9)
@@ -230,4 +232,77 @@ lista = [2,3,4]
 def appendTest(input1, input2):
     input1.append(input2)
 appendTest(lista, 5)
+print(lista)
+
+# 만약에 지역변수가 함수호출이 끝난 뒤에도 남아있다면 어떻게 될까?
+# 지역변수가 같은 변수명으로 남아있다면 뒤에도 지속적으로 그 값을 가지고 있기떄문에
+# 메모리 낭비뿐만 아니라, 다른 함수에서도 해당 변수명을 사용할 수 없는 불편함.
+# a=1 이 남아있다면 모든 a=1로 시작해서 a+=?, a*b 뒤에나오는 함수식을 모두 영향을 미칠 수 있다.
+def test1(result):
+    result += 10
+    return result # result = 30의 값이 사라지고 
+def test2(result): # result의 값이 다시 시작하여 위와는 전혀 상관이 없는 result값을 출력
+                    #
+    result += 100
+    return result
+a = test1(20)
+b = test2(20)
+
+# 아래에 선택정렬을 함수화 시켜서 활용해보기
+# lista = [93,45,21,30,20,94,66,71,45]
+# for a in range(len(lista)-1): # 인덱스 값에 접근하기 위해 len를 사용 0~8까지 a는 0~8까지 각자 자리를 의미, 
+# #                               # -1을 하는 이유는 7번째가 완성이 되는순간 8번째랑 비교할 필요가 없어서
+#     for b in range(a+1, len(lista)): # 비교의 대상이 되는 index를 의미, len(listb)는 똑같이 계속 8변을 반복 
+# #                                         # 범위를 a번째에서 lista로 설정해야 하나씩 줄여 나갈 수 있다. 
+# #                                         # a+1을 하는 이유는 자기 자신과 비교할 경우를 제외하기 위해
+#         if lista[a] > lista[b]: 
+# #                 # 자리 체인지
+# #                 # lista[a], list[b] = lista[b], lista[a]
+#             temp = lista[a]
+#             lista[a] = lista[b]
+#             lista[b] = temp
+# print(lista)
+
+# 함수명 mySort
+# lista = [5,1,2,6,3]
+# 호출 시 mySort(lista)
+# print(lista)까지
+lista = [5,1,2,6,3]
+listb = [99,80,45,30,20,88,77]
+lst = [5,1,11,23,6,7,8,9,2]
+def mySort(x):
+    for a in range(len(x)-1): 
+        for b in range(a+1, len(x)): 
+                if x[a] > x[b]: 
+                    temp = x[a]
+                    x[a] = x[b]
+                    x[b] = temp #return할 필요가 없는 이유 객체는 메모리 주소를 직접 할당받아 원본을 바꿀 수 있기 때문에 return이필요가 없다
+                                #return내에서 변수 값만을 출력 할 때에는 return함수가 필요하다.
+                                #예를 들어 def myplus(a):
+                                            # a += 1
+                                # a=10 일경우 print(a) = 10이 나오기때문에 a의 주소 값을 모르기 떄문에
+                                # return값이 위의 지역함수내에 return값이 없으면 a의 원본을 바꿀수가 없어서
+                                # a = 10이 계속 출력이된다. return = a , a = mySort(a)
+                                # a = mySort(a) 여기서 a의 원본값의 변화가 일어나서 return = a 는 11이 될 수 있다.  
+# lst.sort() 가장 일반적인 방법
+# list.sort(lst) 이것도 가능
+mySort(lst)
+print(lst)                    
+mySort(lista)
+print(lista)
+mySort(listb)
+print(listb)
+
+# lista에 listb를 담으면, 객체의 주소가 복사가 되게 된다
+# 그래서 listb가 lista와 동일한주소, 동일한 데이터를 갖게된다.
+lista = [5,1,2]
+listb = lista
+print(id(lista))
+print(id(listb))
+# lista와 값은 갖되, 동일한 메모리 주소가 아니게 할당하고 싶으면 copy 함수 사용
+import copy
+# 얕은복사 즉, 객체안의 객체 값은(메모리)주소로 복사가 된다.
+# 깊은복사는 copy.deepcopy를 사용하여 객체의 객체도 모두 value로 복사
+listb = copy.copy(lista)
+print(id(listb))
 print(lista)
