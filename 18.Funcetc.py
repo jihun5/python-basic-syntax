@@ -181,3 +181,10 @@ for a in range(len(lista)):
     for b in range(a+1, len(lista)): 
         new_list.append([lista[a], lista[b]])
 print(new_list)
+
+def count(n):
+    if n ==1:
+        return 1
+    else:
+        return str(count(n-1))+" "+str(n)
+print(count(5))
