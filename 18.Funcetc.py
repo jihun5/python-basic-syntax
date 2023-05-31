@@ -205,3 +205,4 @@ total_list = [] # [[10,20,30], [10,20,40].....]
 input2 = 3
 recur(input1, total_list, [],0, input2) # total_list = []이지만 recur문안에 []쓰면 주소값이 고정되지 않아 오류발생
 print(total_list)
+
