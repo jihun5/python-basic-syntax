@@ -188,3 +188,21 @@ def count(n):
     else:
         return str(count(n-1))+" "+str(n)
 print(count(5))
+
+# ##############################05/31##########################################
+# 매개변수로 list와 조합해야할 n개의 숫자가 주어진다
+# lista의 3개씩 저홉을 구하여 리스트에 담아 출력하라
+
+def recur(lista,total_list,temp_list,n, m): # n은 a+1씩, 1씩 계속증가함 무한히 반복되지 않음 
+    if m == 0: #3-1, 2-1, 1-1,되면 멈추기 때문에 total_lista에는 [[10],[20],[30]]의 형태를 갖추고 for 문아래 temp_list에 영향을 받는다.
+        total_list.append(temp_list[:])
+        return # 재귀함수를 종료하기 위해
+    for a in range(n, len(lista)): #(0,5미만), (0,4미만) 
+        temp_list.append(lista[a])
+        recur(lista,total_list,temp_list,a+1, m-1) # for문안에 for문이면 무한 반복, 매개변수의 개수를 맞춰줘야함, m-1, m=0이되는 순간 total_list에 append
+        temp_list.pop() # return값이 3개인데 위에 append를 하면 temp_list.append에 3개...4개...5개가 append될 수 있기때문에 pop을 써서 하나씩 삭제해야 3개가 유지된다.
+input1 = [10,20,30,40,50]
+total_list = [] # [[10,20,30], [10,20,40].....]
+input2 = 3
+recur(input1, total_list, [],0, input2) # total_list = []이지만 recur문안에 []쓰면 주소값이 고정되지 않아 오류발생
+print(total_list)
