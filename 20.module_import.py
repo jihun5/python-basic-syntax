@@ -1,4 +1,4 @@
-# import하고 싶은 모듈이 있으면 import구문을 사용
+# import하고 싶은 모듈(.py를 의미)이 있으면 import구문을 사용
 # from module_test import module_statements
 # from 패키지 명 import 파일명 또는 import 패키지명.파일명
 # as를 사용하여 약어로도 사용가능
@@ -13,3 +13,10 @@ print(module_statements.plus(10,20))
 c1 = module_statements.Calculator()
 c1.plus(10)
 print(c1.result)
+
+import classstatements # 숫자.이 나오면 안되는거같은디 이유좀..지금 이름은 
+c1 = classstatements.CalculatorChild()
+
+c1.plus(100)
+print(f"module_import의 result : ", {c1.result})
+
