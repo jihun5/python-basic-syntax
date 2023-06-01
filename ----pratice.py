@@ -30,14 +30,6 @@ numbers = [1, 2, -3, 4, -5]
 #         num2 *= a
 # print(num2) 
 
-# '''자연수 n이 입력으로 주어졌을 때 n이짝수이면 "n is even"
-# 홀수이면 "n is odd" 를 출력하는 코드를 작성해 보시오'''
-# n = 100
-# a = int(input(n))
-# if a%2 == 0:
-#     f{n}"is even"
-# else:
-#     f{n}"is odd"
 
 # '''한자리 정수로 이루어진 문자열 num_str있을 때 각 자리수의 합을 return 하도록'''
 # num_str = "100000"
@@ -49,5 +41,14 @@ numbers = [1, 2, -3, 4, -5]
 #     add += a
 # print(add)
 
-num_list = [12, 4, 15, 46, 38, -2, 15]
-#각각의 요소를 꺼내어 0보다 작을시 그 인덱스 값을 출력하도록 하라
+# num_list = [12, 4, 15, 46, 38, -2, 15]
+# #각각의 요소를 꺼내어 0보다 작을시 그 인덱스 값을 출력하도록 하라
+# search = 0
+# for a in range(len(num_list)):
+#     if num_list[a] < 0:
+#         search = num_list[a]
+#         answer = num_list.index(search)
+#     elif num_list[a] > 0:
+#         answer = -1
+# # 인덱스의 몇번째가 -2인가?
+# print(answer)
