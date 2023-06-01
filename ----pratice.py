@@ -52,3 +52,13 @@ numbers = [1, 2, -3, 4, -5]
 #         answer = -1
 # # 인덱스의 몇번째가 -2인가?
 # print(answer)
+
+'''
+emergency가 매개변수일때
+진료순서를 정하시오
+'''
+emergency = [3, 76, 24]
+# result = [3, 1, 2]
+# emer전시에 0번쨰 1번째 2번째를 비교하면되잖아
+# ex) emergency[0] < emergency[1] 
+# answer = [위에꺼결과를 순서대로 넣기]
