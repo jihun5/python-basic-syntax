@@ -1,4 +1,5 @@
 # import하고 싶은 모듈(.py를 의미)이 있으면 import구문을 사용
+# 디렉터리는 모듈을 포함하고 있는 패키지
 # from module_test import module_statements
 # from 패키지 명 import 파일명 또는 import 패키지명.파일명
 # as를 사용하여 약어로도 사용가능

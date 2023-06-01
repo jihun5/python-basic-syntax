@@ -77,22 +77,43 @@ import os
 #     if(dirTuple[1]=='.py'):
 #         fullpath = os.path.join(searchDir, dir)
 #         print(fullpath)
-# 그 다음 폴더까지 검색
-searchDir = r'C:\Users\user\Desktop\오지훈' 
-dirList = os.listdir(searchDir) #searchDir 목록안에 있는 파일들 꺼내기
-for dir in dirList: # searchDir 목록안에 있는 파일들 꺼내기 
-    filename = os.path.join(searchDir, dir) # filename = searchDir 목록안에 있는 dir 값 경로꺼내기 
-    if os.path.isdir(filename): # 만약 filename과 isdir의 경로가 같다면  
-        dirlist2 = os.listdir(filename) #dirlist2 의 경로는 filename경로 값에 listdir 
-        for dir2 in dirlist2:  # filename경로 값에 listdir 값에 dir2를 넣고
-            dirTuple2 = os.path.splitext(dir2) # dirTuple2 = os.path.splitext(dir2) dir2의 값에 경로를 dirTuple2에넣고
-            if(dirTuple2[1]=='.py'): #만약 dirTuple2에 뒤에 즉 (파일명)뒤에 확장자가 py의 값을 가지게 되면 
-                fullPath = os.path.join(filename, dir2) # fullpath의 경로는filname(상위폴더)에서 dir2(filename의 경로 값)
-                print(fullPath) #결국 여기서 가져올 수 있는것은 경로인데 무슨 경로나filname내부에 폴더를 뒤져서 나온 .py파일들을 가져갈 수 있는 것
-    dirTuple = os.path.splitext(dir)
-    if(dirTuple[1]=='.py'):
-        fullPath = os.path.join(searchDir, dir)
-        print(fullPath)
-#알아 내고자하는 것 : 내 파일 경로 안에 py확장자를 쓰는 것의 경로 
-# 상위폴더랑 내에는 py파일명확장자가 없기때문에 하위폴더를 검색하고 그안에서 py값을 찾아내서 그 경로를 업데이트 시켜야 한다.
-# 모든 폴더까지검색 
+
+# # 모든 폴더까지 검색
+# searchDir = r'C:\Users\user\Desktop\오지훈'
+# def searchRecur(searchDir): 
+#     dirList = os.listdir(searchDir) #searchDir 목록안에 있는 파일들 꺼내기
+#     for dir in dirList: # searchDir 디렉토리 리스트 목록안에 있는 디렉토리(파일)꺼내기들 꺼내기 
+#         filename = os.path.join(searchDir, dir) # filename = searchDir 목록안에 있는 디렉토리(파일) 경로를 디렉토리 serarchDir 값에 넣기 
+#         if os.path.isdir(filename): # 만약 filename과 isdir의 경로가 같다면  
+#             dirlist2 = os.listdir(filename) #dirlist2 의 경로는 filename경로 값에 listdir 
+#             for dir2 in dirlist2:  # filename경로 값에 listdir 값에 dir2를 넣고
+#                 dirTuple2 = os.path.splitext(dir2) # dirTuple2 = os.path.splitext(dir2) dir2의 값에 경로를 dirTuple2에넣고
+#                 if(dirTuple2[1]=='.py'): #만약 dirTuple2에 뒤에 즉 (파일명)뒤에 확장자가 py의 값을 가지게 되면 
+#                     fullPath = os.path.join(filename, dir2) # fullpath의 경로는filname(상위폴더)에서 dir2(filename의 경로 값)
+#                     print(fullPath) #결국 여기서 가져올 수 있는것은 경로인데 무슨 경로나filname내부에 폴더를 뒤져서 나온 .py파일들을 가져갈 수 있는 것
+#         dirTuple = os.path.splitext(dir)#dir값이 아니면 dirTuple값으로 꺼내기 
+#         if(dirTuple[1]=='.py'):#파일 확장자 명이 py일경우 추가
+#             fullPath = os.path.join(searchDir, dir)#위와 같은 경로 추가 searchDir값에
+#             print(fullPath) #py확장자를 가지고 있는 searchDir 값에 fullPath 리스트 안에 넣기
+# #알아 내고자하는 것 : 내 파일 경로 안에 py확장자를 쓰는 것의 경로 
+# # 상위폴더랑 내에는 py파일명확장자가 없기때문에 하위폴더를 검색하고 그안에서 py값을 찾아내서 그 경로를 업데이트 시켜야 한다.
+# # 모든 폴더까지검색 
+
+
+def searchRecur(searchDir):
+    try: 
+        dirList = os.listdir(searchDir)
+        if not dirList: #dirList에 파일이 없으면 종료 
+            return
+        for dir in dirList: 
+            filename = os.path.join(searchDir, dir)#dir폴더명을 다시 찾기 
+            if os.path.isdir(filename): 
+                searchRecur(filename) 
+            dirTuple = os.path.splitext(dir)
+            if(dirTuple[1]=='.py'):
+                fullPath = os.path.join(searchDir, dir)#위와 같은 경로 추가 searchDir값에
+                print(fullPath) #py확장자를 가지고 있는 searchDir 값에 fullPath 리스트 안에 넣기
+    except Exception:
+        print("예외입니다")
+searchDir = r'C:\Users\user\Desktop\오지훈' #재귀함수를 만들때 가장 중요한건 비슷한 것들 묶기
+searchRecur(searchDir)
