@@ -54,11 +54,40 @@ numbers = [1, 2, -3, 4, -5]
 # print(answer)
 
 '''
-emergency가 매개변수일때
-진료순서를 정하시오
+홀수만 이어붙이기
+짝수만 이어붙이기
+그리고 두 수를 더하기
 '''
-emergency = [3, 76, 24]
-# result = [3, 1, 2]
-# emer전시에 0번쨰 1번째 2번째를 비교하면되잖아
-# ex) emergency[0] < emergency[1] 
-# answer = [위에꺼결과를 순서대로 넣기]
+# num_list = [3, 4, 5, 2, 1]
+# result = 393
+# a1 = []
+# a2 = []
+# for a in num_list:
+#     if a%2 != 0:
+#         a1.append(a)
+#     else:
+#         a2.append(a)
+# print(a2)
+
+''' 
+정수배열 arr 각 50보다 크거나 짝수면 나누기 2
+50보다 작은 홀수면 곱하기 2
+'''
+arr = [1, 2, 3, 100, 99, 98]
+# result = [2, 2, 6, 50, 99, 49]
+a1 =[]
+a2 = []
+a3 = []
+for a in arr:
+    if (a > 50) and (a%2 == 0):
+        a1.append(a/2)
+    elif (a < 50) and (a%2 != 0):
+        a2.append(a*2)
+    else:
+        a3.append(a)
+print(a1)
+print(a2)
+print(a3)
+answer = a1 +a2 +a3
+answer.sort()
+print(answer)
