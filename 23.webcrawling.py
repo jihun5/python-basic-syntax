@@ -25,42 +25,42 @@
 # budget_info = html_response.select_one('table.infobox > tbody > tr:nth-of-type(16) > td').get_text()
 # print(f"아바타의 감독은 {director_info}이고 제작비는 {budget_info}다")
 
-# # 코인 시세정보 API, url
-# import json #**********************************************굉장히 중요
-# # 실제 업무에서  date를 주고받는 경우 json형식으로 주고 받는다 
-# url = "https://api.binance.com/api/v3/ticker/24hr"
-# response = requests.get(url)
-# data_json = json.loads(response.text)
-# # print(data_json)
+# 코인 시세정보 API, url
+import json #**********************************************굉장히 중요
+# 실제 업무에서  date를 주고받는 경우 json형식으로 주고 받는다 
+url = "https://api.binance.com/api/v3/ticker/24hr"
+response = requests.get(url)
+data_json = json.loads(response.text)
+print(data_json)
 
-# # 출력 결과가 
-# # ********************************************************굉장히 중요
-# # lastPrice : xxxx(가격)
-# # Key는 "symbol" if ~~ == "BTCUSDT", lastPrice를 key로 값을
-# # key값 value값 뽑아내기
-# # dict.keys(), dict.values() 
-# for a in data_json:
-#     if a['symbol'] == "BTCUSDT":
-#         print(f"{a['symbol']}코인의 price는 {a['lastPrice']}입니다.")
+# 출력 결과가 
+# ********************************************************굉장히 중요
+# lastPrice : xxxx(가격)
+# Key는 "symbol" if ~~ == "BTCUSDT", lastPrice를 key로 값을
+# key값 value값 뽑아내기
+# dict.keys(), dict.values() 
+for a in data_json:
+    if a['symbol'] == "BTCUSDT":
+        print(f"{a['symbol']}코인의 price는 {a['lastPrice']}입니다.")
 
 
-# csv파일 parsing
-import seaborn
-from matplotlib import pyplot
-import pandas
+# # csv파일 parsing
+# import seaborn
+# from matplotlib import pyplot
+# import pandas
 
-file_path = r'C:\Users\user\Desktop\오지훈\tips.csv'
-csv_date = pandas.read_csv(file_path)
-# print(csv_date)
+# file_path = r'C:\Users\user\Desktop\오지훈\tips.csv'
+# csv_date = pandas.read_csv(file_path)
+# # print(csv_date)
 
-# 성별에 따라 tip이 어떻게 달라지는 지
-# agg : 집계함수, mean:평균, std:표준편차
-tip_by_gender = csv_date.groupby('gender')['tip'].agg(['mean', 'std']).reset_index()
-# tip_by_day = csv_date.groupby('day')['tip'].agg(['mean', 'std']).reset_index()
+# # 성별에 따라 tip이 어떻게 달라지는 지
+# # agg : 집계함수, mean:평균, std:표준편차
+# tip_by_gender = csv_date.groupby('gender')['tip'].agg(['mean', 'std']).reset_index()
+# # tip_by_day = csv_date.groupby('day')['tip'].agg(['mean', 'std']).reset_index()
 
-seaborn.barplot(x='gender', y='mean', data=tip_by_gender, yerr=tip_by_gender['mean'], capsize = 0.1)
-seaborn.despine() # 테두리 없애주는 함수
-pyplot.title('average tip per gender')
-pyplot.xlabel("gender")
-pyplot.ylabel("average tip")
-pyplot.show()
+# seaborn.barplot(x='gender', y='mean', data=tip_by_gender, yerr=tip_by_gender['mean'], capsize = 0.1)
+# seaborn.despine() # 테두리 없애주는 함수
+# pyplot.title('average tip per gender')
+# pyplot.xlabel("gender")
+# pyplot.ylabel("average tip")
+# pyplot.show()
