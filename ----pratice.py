@@ -385,18 +385,185 @@ before에 revsere 한값이 after과 일치하면 1
 # else:
 #      answer = 0
 
-i = 1
-j = 13
-k = 1
-result = 6
-# 정수 i,j,k가 매개 변수일때
-# i부터 j까지 k가 몇번 등장하는 지 return
-# num = 0
-num = []
-for a in range(i, j+1):
-     if str(k) in str(a):
-          num.append(a)
-str(num)
-answer = str(num).count("1")
-print(answer)
+# i = 1
+# j = 13
+# k = 1
+# result = 6
+# # 정수 i,j,k가 매개 변수일때
+# # i부터 j까지 k가 몇번 등장하는 지 return
+# # num = 0
+# num = []
+# for a in range(i, j+1):
+#      if str(k) in str(a):
+#           num.append(a)
+# str(num)
+# answer = str(num).count("1")
+# print(answer)
 
+'''   
+정수가 있을 때 짝이라면 반으로 나누고
+홀수라면 1을 뺀뒤 반으로 나누고
+반복
+모든 원소를 1로 나누기 위해 필요한 연산의 횟수를 return
+'''
+'''
+문자열 my_stirng이 매개 변수로 주어지는디
+소문자, 대문자, 자연수로만 구성이 되어있는데
+my_string 안의 자연수들의 합을 구하라
+ex) aAB1B2CC34pOp
+= 1+2+34 = 37
+'''
+# import re
+# my_string = "aAb1B2cC34oOp"
+# # answer = 37 # 1+2+34
+# numbers = re.findall(r'\d+',"",my_string)
+# print(numbers)
+
+
+# participant = ["mislav", "stanko", "mislav", "ana"]
+# completion = ["stanko", "ana", "mislav"]
+# # result = "mislav"
+# answer = ""
+# dicta = {}
+# for a in completion: # a = stanko, ana, mislava
+#     if a not in dicta.keys(): # dicta에 a가없으면 딕셔너리 형태로만든다
+#         dicta[a] = 1 # dicta{mislav : 1....} 
+#     else:
+#         dicta[a] = dicta[a] +1 # 아니면 dicta{mislav : 2}
+# for i in participant: # mislav, stanko, mislav, ana
+#     if i in dicta and dicta[i] > 0: # i가 dicta에 있고 dicta에 [i]값을 가지고 있으면
+#         dicta[i] = dicta[i] -1 # -1하면 된다{mislav : 2 -1} 
+#     else:
+#         answer = i 
+#         # values값이 0인친구가 출력되겠지? 즉
+#         # 참여자 목록에 없는 dicta가 0이되는 친구가 출력이 될것이다.
+# print(answer)
+
+# participant = ["leo", "kiki", "eden", "ji"]
+# completion =  ["eden", "kiki"]
+# # result = "leo"
+# dicta = {}
+# answer = ""
+# for a in completion:
+#     if a not in dicta.keys():
+#         dicta[a] = 1 # {leo : 1, kiki : 1, eden : 1}
+#     else:
+#         dicta[a] = dicta[a] +1 # 하는 이유 동명이인의 경우{leo : 2}가 될 수 있게
+# for i in participant:
+#     if i in dicta and dicta[i] > 0: # 즉 value값을 가지는가?
+#         dicta[i] = dicta[i] -1 # {leo: 1} = {leo :1} -1 value
+#     else:
+#         answer = i # 참여자중 완주자 목록의 value값이 0이되는 순간 
+#                     # 참여자중 완주하지 못한 자가 출력
+# print(answer)
+
+# dict1 = {"이름" : "홍길동", "age" : "25"}
+# dict1['성별'] = "남성"
+# print(dict1)
+
+# del dict1['성별']
+# print(dict1)
+
+# keylist = dict1.keys()
+# print(keylist)
+
+# for a in dict1:
+#     print(a)
+
+# for a in dict1.values():
+#     print(a)
+
+# lista = ['A', 'A', 'B','O','O','AB','AB']
+# dicta = {}
+# # for a in lista:
+# #     if a not in dicta.keys():
+# #         dicta[a] = 1
+# #     else:
+# #         dicta[a] = dicta[a] +1
+# for a in lista:
+#     if a not in dicta.keys():
+#         dicta[a] = lista.count(a)
+# print(dicta)
+
+# import requests
+# import json
+
+
+# import pandas
+# import numpy
+# from sklearn.preprocessing import MinMaxScaler
+# url = "https://archive.ics.uci.edu/ml/machine-learning-databases/pima-indians-diabetes/pima-indians-diabetes.data"
+# names = ['preg','plas','pres','skin','test','mass','pedi','age','class']
+# dataframe = pandas.read_csv(url, names=names)
+# array = dataframe.values
+
+# X=array[:,0:8]
+# Y =array[:,8]
+# scler = MinMaxScaler(feature_range=(0,1))
+# rescaledX = scler.fit_transform(X)
+# numpy.set_printoptions(precision=3)
+# print(rescaledX[0:5,:])
+
+# from sklearn.svm import SVC
+
+# x_train, x_test, y_train, y_test = train_test_split(cancer.data, cancer.target, random_state=0)
+# svm = SVC(C=100)
+# svm.fit(x_train, y_train)
+# print("테스트 세트 정확도 : {:2f}".format(svm.score(x_test, y_test)))
+
+# import requests
+# import json
+# from pandas import DataFrame
+
+# urlFmt = "https://dapi.kakao.com/v3/search/book?query={query}&page={page}&size={size}"
+# # 주소 값에 마지막에 ?를 넣어 원하는 결과를 덧붙이고 
+# # 홈페이지에서 주어진 변수 값을 설정한 것 대로 넣을 수 있는공간
+# # query, page, size가 변수값이고 각각을 연결하기 위해서는 처음을 제외하고
+# # &문을 넣고 변수 = {} format변수를 사용하여 값을 지정한다.
+# query = "파이썬"
+# page = 1
+# size = 50
+# key = "899a1eedbcb6713b4e78b75f1e3ed026"
+# session = requests.Session()
+# session.headers.update({
+#     "Authorization" : "KakaoAK %s" % key     
+# })
+# isEnd = False
+# # 반복 수행 도중 추출되는 검색결과 리스트 결합할 빈 리스트 
+# mylist = []
+# # 1페이지부터 시작
+# query = "은혼"
+# page = 1
+# while not isEnd:
+#     #-----------------------------------------------------------------
+#     # 이전 예제 코드 시작
+#     url = urlFmt.format(query=query, page=page, size=size)
+#     url
+#     #출력된 데이터의 변수값 확인
+#     r = session.get(url)
+#     if r.status_code != 200:
+#         msg = "[%d Error] %s 에러가 발생함" % (r.status_code, r.reason)
+#         raise Exception(msg)
+#     r.encoding = "utf-8"
+#     data = json.loads(r.text)
+#     # data
+#     # -------------------------------------------------------------------
+#     # 이전 예제 코드 끝 
+#     # 추출한 리슽으를 미리 준비한 빈 리스트에  추가
+#     searchList = data['documents']
+#     mylist.extend(searchList)
+#     # 증감식에 해당하는 isend변수 추출
+#     isEnd = bool(data['meta']['is_end'])
+#     page += 1
+#     sum_price = [i.get('price') for i in mylist]
+#     sale_price = [a.get('sale_price') for a in mylist]
+#     normal_sale = [e.get("status") for e in mylist]
+# print("은혼의 총 가격은?", sum(sum_price), "sale_price는?", sum(sale_price))
+# print("총가격은: %d" % sum('price'))
+
+# dict1 = {"이름" : "홍길동", "age" : "25"}
+# dict1['성별'] = "남성"
+# print(dict1)
+
+# keylist = dict1.keys()
+# print(keylist)
